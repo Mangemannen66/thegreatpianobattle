@@ -1,6 +1,6 @@
 <?php
 
-class Character {
+class Character extends Base{
 	
 	public $name;
 	public $tools = array();
