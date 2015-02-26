@@ -14,4 +14,24 @@ $ds = new DBObjectSaver(array(
   "prefix" => "piano_battle",
 ));
 
+$player = &$ds->player[0];
+$player_name = $player->name;
+$player_class = $player->battleField;
 
+
+$virtualPlayers = &$ds->virtualPlayers;
+$virtualPlayers1_name = $virtualPlayers[0]->name;
+$virtualPlayers1_battleField = $virtualPlayers[0]->battleField;
+$virtualPlayers2_name = $virtualPlayers[1]->name;
+$virtualPlayers2_battleField = $virtualPlayers[1]->battleField;
+
+
+
+
+
+
+
+
+
+
+echo(json_encode($return_data));

@@ -1,0 +1,12 @@
+{
+  "id" : 1,
+  "title" : "Bridge over troubled water.",
+  "description" : "This is a classic popballad, that is wonderfull when somebody sing it. You shall not do that! It is all about feeling the song. Make it happen!",
+  "skills" : {		
+		"harmony" : 30,
+		"scale" : 40,
+		"rhythm" : 20,
+		"feeling" : 60		
+	}
+
+}

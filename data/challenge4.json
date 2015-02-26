@@ -1,0 +1,12 @@
+{
+  "id" : 4,
+  "title" : "Imagine",
+  "description" : "John Lennon made this in a beautifull way! Now it is your time to play this beautifull song.",
+  "skills" : {		
+		"harmony" : 10,
+		"scale" : 10,
+		"rhythm" : 50,
+		"feeling" : 80		
+	}
+
+}

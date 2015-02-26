@@ -8,12 +8,12 @@ class Character extends Base{
 	public $harmony;
     public $scale;
     public $rhythm;
-    public $technique;
-    public $playerClass;
+    public $feeling;
+    public $battleField;
 
-	public function __construct($name, $playerClass){
+	public function __construct($name, $battleField){
 		$this->name = $name;
-		$this->playerClass = $playerClass;
+		$this->battleField = $battleField;
 	}
 
 

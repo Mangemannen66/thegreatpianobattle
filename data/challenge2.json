@@ -1,0 +1,12 @@
+{
+  "id" : 2,
+  "title" : "Stella by starlite.",
+  "description" : "This is a classic jazzstandard. You play it and make a solo that will stun us - that can can be the winning concept.",
+  "skills" : {		
+		"harmony" : 10,
+		"scale" : 20,
+		"rhythm" : 90,
+		"feeling" : 30		
+	}
+
+}

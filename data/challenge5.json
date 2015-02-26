@@ -1,0 +1,12 @@
+{
+  "id" : 5,
+  "title" : "I love you",
+  "description" : "A beautifull tune once peformed by Bill Evans. Now make your best version and win!",
+  "skills" : {		
+		"harmony" : 50,
+		"scale" : 30,
+		"rhythm" : 30,
+		"feeling" : 40		
+	}
+
+}

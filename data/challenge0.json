@@ -1,0 +1,12 @@
+{
+  "id" : 0,
+  "title" : "Rock'n Roll is king.",
+  "description" : "You will play the tune Rock'n roll is king. Best peformance wins.",
+  "skills" : {		
+		"harmony" : 10,
+		"scale" : 20,
+		"rhythm" : 90,
+		"feeling" : 30		
+	}
+
+}

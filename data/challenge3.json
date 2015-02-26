@@ -1,0 +1,12 @@
+{
+  "id" : 3,
+  "title" : "Great balls of fire.",
+  "description" : "The best rockpianosong ever! - or? Well you should do the best of it anyway. A stunning solo and you'r a winner!",
+  "skills" : {		
+		"harmony" : 10,
+		"scale" : 10,
+		"rhythm" : 100,
+		"feeling" : 30		
+	}
+
+}
