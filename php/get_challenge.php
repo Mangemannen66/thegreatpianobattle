@@ -31,16 +31,16 @@ $random_challenge_nr = rand(0, 5);
 
 $challenge_json_path = "../data/challenge" . $random_challenge_nr . ".json";
 
-// Get the challenge json
+// Plocka challenge från json
 $challenge_data = file_get_contents($challenge_json_path);
 
-// If we did not find our challenge file, exit script
+// Om vi inte hitter challenge filen, stoppa scriptet
 if (!$challenge_data) {
   echo("Challenge json not found! ".$game_data_path);
   exit();
 }
 
-// json_decode($json_data, true) turns json into associative arrays
+// Gör json till en associative arrays
 $challenge = json_decode($challenge_data, true);
 
 if(!$challenge) {
