@@ -1,6 +1,19 @@
 <?php
 
 
+
+
+// Make sure the ajax is sending the required data
+if (isset($_REQUEST["player_name"]) && isset($_REQUEST["player_class"])) {
+  // Store data in variables
+  $player_name = $_REQUEST["player_name"];
+  $player_class = $_REQUEST["player_class"];
+} 
+else {
+  // Not enough required data was received, exit script
+  echo(json_encode(false));
+  exit();
+}
 //Nodebite black box
 include_once("nodebite-swiss-army-oop.php");
 
@@ -16,13 +29,15 @@ $ds = new DBObjectSaver(array(
 
 //destroy old game data
 unset($ds->player);
-unset($ds->virtualPlayers);
+unset($ds->virtualPlayer);
 unset($ds->tools);
-
-
+//Lite ALIAS!
 $player = &$ds->player;
-$virtualPlayers = &$ds->virtualPlayers;
+$virtualPlayer = &$ds->virtualPlayer;
 $tools = &$ds->tools;
+
+
+
 
 $tools[] = new Tool("A HarmonyBook",
   array(
@@ -91,18 +106,21 @@ $tools[] = New Tool("Spotify",
 );
 
 
-$player = new $player_class($player_name, $player_class);
+//Istansiera '$player'
+$new_player = new $player_class($player_name, $player_class);
 
 $player[] = $new_player;
 
+//Ge återstående playerklasser till virtuella spelare
+//Array av Pianoplayers
 $classes = array("RockPianoPlayer" , "PopPianoPlayer" , "JazzPianoPlayer");
+//Kolla vilken PianoplayerKlass som redan är tagen
+$busy_class = array_search($player_class, $classes);
+array_splice($classes, $busy_class, 1);
+//Skapa 2 Virtuella spelare
+$virtualPlayer[] = new $classes[0]("Herbie Hancock", $classes[0]);
+$virtualPlayer[] = new $classes[1]("Chick Corea", $classes[1]);
 
-$total_classes = array_search($player_class, $classes);
-array_splice($classes, $total_classes, 1);
 
-$virtualPlayers[] = new $classes[0]("Herbie Hancock", $classes[0]);
-$virtualPlayers[] = new $classes[0]("Chick Corea", $classes[1]);
-
-
-echo(json_encode($echo_data));
+echo(json_encode(true));
 

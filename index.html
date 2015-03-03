@@ -8,19 +8,53 @@
     <link rel="stylesheet" type="text/css" href="css/meyer-reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
-  
   <body>
-    <header>
-     <h1>All mothers Piano-battle!!!!</h1>
+       <header>
+       <h1>All mothers Piano-battle!!!!</h1>
+        <!-- <nav>
+           <ul>
+            <li id="newStory">Start a new pianobattle-challenge.</li>
+            <li id="playNextEvent">Go to the next challenge.</li>
+            <li id="action">Start the Pianobattle.</li>
+            <li id="status">Status.</li>
+            <li id="startOver">Restart the game.</li>
+          </ul> 
+        </nav>  -->
     </header>
-  <main>
+    <main>
+      <article>
+        <h2>Welcome to the battle!</h2>
+        
+        <section class="playerSelect">
+        <!--  <h4>Before you start</h4><br> -->
 
-  </main>
+        <form class="playerSelect">
 
-  <footer>
-    <address>
-    </address>
-  </footer>
+            
+                <label for="player_name">Your playername:</label>
+                <input type="text" id="playerName" name="playerName" placeholder="Type your name: "><br>
 
+                <label>Choose the type of player:</label><br>
+          
+                  <input type="radio" id="RockPianoPlayerClass" name="playerClass" value="RockPianoPlayer" focus>
+                  <label for="RockPianoPlayer" >RockPianoPlayer</label><br>
+                  <input type="radio" id="JazzPianoPlayerClass" name="playerClass" value="JazzPianoPlayer">
+                  <label for="JazzPianoPlayer">JazzPianoPlayer</label><br>
+                  <input type="radio" id="PopPianoPlayerClass" name="playerClass" value="PopPianoPlayer">
+                  <label for="PopPianoPlayer">PopPianoPlayer</label><br>
+            
+                <label>&nbsp;</label>
+                <button class="startGame" type="submit">Start the game</button><br>
+            
+
+        </form>
+        </section>
+      </article>  
+    </main>
+    <footer>
+      <address> 
+        <p></p>
+      </address>
+    </footer>
   </body>
 </html>

@@ -13,25 +13,65 @@ $ds = new DBObjectSaver(array(
   "password" => "mysql",
   "prefix" => "piano_battle",
 ));
-
+//Plockar fram fysiska spelaren det första vi gör!
 $player = &$ds->player[0];
 $player_name = $player->name;
-$player_class = $player->battleField;
+$player_class = $player->battleZone;
 
-
-$virtualPlayers = &$ds->virtualPlayers;
-$virtualPlayers1_name = $virtualPlayers[0]->name;
-$virtualPlayers1_battleField = $virtualPlayers[0]->battleField;
-$virtualPlayers2_name = $virtualPlayers[1]->name;
-$virtualPlayers2_battleField = $virtualPlayers[1]->battleField;
-
-
-
+//Virtuella spelare
+$virtualPlayer = &$ds->virtualPlayer;
+$virtualPlayer1_name = $virtualPlayer[0]->name;
+$virtualPlayer1_battleZone = $virtualPlayer[0]->battleZone;
+$virtualPlayer2_name = $virtualPlayer[1]->name;
+$virtualPlayer2_battleZone = $virtualPlayer[1]->battleZone;
 
 
 
+$random_challenge_nr = rand(0, 5);
 
+$challenge_json_path = "../data/challenge" . $random_challenge_nr . ".json";
 
+// Get the challenge json
+$challenge_data = file_get_contents($challenge_json_path);
+
+// If we did not find our challenge file, exit script
+if (!$challenge_data) {
+  echo("Challenge json not found! ".$game_data_path);
+  exit();
+}
+
+// json_decode($json_data, true) turns json into associative arrays
+$challenge = json_decode($challenge_data, true);
+
+if(!$challenge) {
+	echo("json_decode failed");
+	exit();
+}
+
+unset($ds->challenge);
+
+$current_challenge = &$ds->challenge;
+
+$new_challenge = new Challenge($challenge);
+
+$current_challenge[] = $new_challenge;
+
+$player_success = $player->success;
+$virtualPlayer1_success = $virtualPlayer[0]->success;
+$virtualPlayer2_success = $virtualPlayer[1]->success;
+
+$return_data = array(
+  "playerName" => &$player_name,
+  "playerClass" => &$player_class,
+  "playerSuccess" => &$player_success,
+  "challenge" => &$challenge,
+  "virtualPlayer1Name" => &$virtualPlayer1_name,
+  "virtualPlayer1Class" => &$virtualPlayer1_battleZone,
+  "virtualPlayer1Success" => &$virtualPlayer1_success,
+  "virtualPlayer2Name" => &$virtualPlayer2_name,
+  "virtualPlayer2Class" => &$virtualPlayer2_battleZone,
+  "virtualPlayer2Success" => &$virtualPlayer2_success
+);
 
 
 echo(json_encode($return_data));

@@ -9,11 +9,11 @@ class Character extends Base{
     public $scale;
     public $rhythm;
     public $feeling;
-    public $battleField;
+    public $battleZone;
 
-	public function __construct($name, $battleField){
+	public function __construct($name, $battleZone){
 		$this->name = $name;
-		$this->battleField = $battleField;
+		$this->battleZone = $battleZone;
 	}
 
 
