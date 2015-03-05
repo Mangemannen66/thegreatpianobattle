@@ -60,7 +60,7 @@ $player_success = $player->success;
 $virtualPlayer1_success = $virtualPlayer[0]->success;
 $virtualPlayer2_success = $virtualPlayer[1]->success;
 
-$return_data = array(
+$game_data = array(
   "playerName" => &$player_name,
   "playerClass" => &$player_class,
   "playerSuccess" => &$player_success,
@@ -74,4 +74,4 @@ $return_data = array(
 );
 
 
-echo(json_encode($return_data));
+echo(json_encode($game_data));

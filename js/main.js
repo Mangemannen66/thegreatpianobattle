@@ -48,7 +48,7 @@ $(function() {
 					//gameOver();
 				}
 				else {
-					//getChallenge(data);
+					getChallengeData(data);
 					console.log("startGame and get challenge Success: ", data);
 				}
 			},
@@ -57,6 +57,19 @@ $(function() {
 			}
 		});
 	}
+
+	function getChallengeData(battleData) {
+		$(".playerSelect").html('');
+		$(".battleInfo").html('');
+		$(".battleChoise").html('');
+		$(".battleInfo").append("<h3>Info regarding you and your competitors!</h3>");
+		$(".battleInfo").append("<p>Your name: &nbsp;&nbsp;" + battleData["playerName"] + "&nbsp;&nbsp;Pianoplayer type: &nbsp;&nbsp;" + battleData["playerClass"] + "Succes points: &nbsp;&nbsp;" + battleData["playerSuccess"] + "</p>");
+		$(".battleInfo").append("<p>Virtualplayer 1: &nbsp;&nbsp;" + battleData["virtualPlayer1Name"] + "&nbsp;&nbsp;Pianoplayer type: &nbsp;&nbsp;" + battleData["virtualPlayer1Class"] + "Succes points: &nbsp;&nbsp;" + battleData["virtualPlayer1Success"] + "</p>");
+		$(".battleInfo").append("<p>Virtualplayer 2: &nbsp;&nbsp;" + battleData["virtualPlayer2Name"] + "&nbsp;&nbsp;Pianoplayer type: &nbsp;&nbsp;" + battleData["virtualPlayer2Class"] + "Succes points: &nbsp;&nbsp;" + battleData["virtualPlayer2Success"] + "</p>");
+	
+
+	}
+
 
 choosePlayerClass();
 });
