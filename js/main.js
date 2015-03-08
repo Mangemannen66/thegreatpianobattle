@@ -67,10 +67,12 @@ $(function() {
 		  + battleData["playerName"] + "<span class='normal'><br>Pianoplayer type: &nbsp;&nbsp;</span>"
 		  + battleData["playerClass"] + "<span class='normal'>&nbsp;&nbsp;Succes points: &nbsp;&nbsp;</span>" 
 		  + battleData["playerSuccess"] + "</p>");
+
 		$(".battleInfo").append("<p><span class='normal'>Virtualplayer 1: &nbsp;&nbsp;</span>" 
 			+ battleData["virtualPlayer1Name"] + "<span class='normal'><br>Pianoplayer type: &nbsp;&nbsp;</span>" 
 			+ battleData["virtualPlayer1Class"] + "<span class='normal'>&nbsp;&nbsp;Succes points: &nbsp;&nbsp;</span>" 
 			+ battleData["virtualPlayer1Success"] + "</p>");
+
 		$(".battleInfo").append("<p><span class='normal'>Virtualplayer 2: &nbsp;&nbsp;</span>" 
 			+ battleData["virtualPlayer2Name"] + "<span class='normal'><br>Pianoplayer type: &nbsp;&nbsp;</span>" 
 			+ battleData["virtualPlayer2Class"] + "<span class='normal'>&nbsp;&nbsp;Succes points: &nbsp;&nbsp;</span>" 
@@ -162,6 +164,82 @@ $(function() {
 		});
 	}
 
+	function playChallenge(challengeCompanion) {
+		$.ajax({
+			url: "php/play_challenge.php",
+			dataType: "json",
+			data: {
+				challenge_companion : challengeCompanion
+			},
+			success: function(data) {
+				activeChallenge(data);
+				console.log("playChallenge Success: ", data);
+			},
+			error: function(data) {
+				console.log("Error: ", data);
+			}
+		});
+	}
 
+	function activeChallenge(gameData) {
+		$(".battleInfo").html('');
+		$(".battleChoise").html('');
+
+		$(".battleInfo").append("<h3>The results of the challenge...</h3>");
+
+		if (gameData["gameOver"] === true) {
+			$(".battleInfo").append("<p>" + gameData["returnString"] + "</p>");
+
+			$(".battleChoise").html('<button class="startAgain">Start over!</button>');
+			//start over clickhandler
+			$(".startAgain").click(function() {
+				$.ajax({
+					url: "reset.php",
+					dataType: "json",
+					success: function(data) {
+						console.log("printActiveChallenge success: ", data);
+					choosePlayerClass();
+					},
+					error: function(data) {
+					console.log("startOver error: ", data.responseText);
+					}
+				});
+			});
+		}
+		else {
+			$(".battleInfo").append("<p>" + gameData["returnString"] + "</p>");
+
+			$(".battleInfo").append("<p><strong>First Place:</strong> " + gameData["firstPlace"] + "</p>");
+			$(".battleInfo").append("<p><strong>Second Place:</strong> " + gameData["secondPlace"] + "</p>");
+			if (gameData["thirdPlace"] !== null) {
+				$(".battleInfo").append("<strong><p>Third Place:</strong> " + gameData["thirdPlace"] + "</p>");
+			}
+			
+			$(".battleChoise").append('<button class="nextChallengeBtn">Play next challenge!</button>');
+			$(".nextChallengeBtn").click(function() {
+				playGame(false);
+				// Do not reload the page
+				return false;
+			});
+		}
+	}
+
+	function lostStartGameAgain() {
+		$(".battleInfo").html("<h2>You have lost the game!</h2>");
+		$(".battleChoise").html('<button class="startAgain">Start over!</button>');
+		//start over clickhandler
+		$(".startAgain").click(function() {
+			$.ajax({
+				url: "php/reset.php",
+				dataType: "json",
+				success: function(data) {
+				choosePlayerClass();
+				},
+				error: function(data) {
+				console.log("startOver error: ", data.responseText);
+				}
+			});
+		});
+	}
 choosePlayerClass();
 });
