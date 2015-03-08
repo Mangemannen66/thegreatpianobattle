@@ -20,7 +20,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   font-family: 'Raleway', sans-serif;
-  letter-spacing: 3px;  
+  letter-spacing: 2px;  
   color: maroon;
 }
 
@@ -41,23 +41,40 @@ h2 {
 h3 {
 	font-size: 24px;
   color:#000;
-  margin-bottom: 15px;
+  margin: 8px 0 10px 0;
 
 
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 300;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-left: 2px;
+}
+.normal {
+  font-size: 18px;
   line-height: 1.2;
-  font-weight: normal;
+  font-weight: 400;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 p.challenge {
   margin-top: 5px;
   font-family: 'Dancing Script', cursive;
   font-size: 26px;
+  margin-bottom: 6px;
 }
 
+
+li {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 300;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-left: 2px;
+}
 
 a {
   cursor: pointer;
@@ -122,14 +139,18 @@ header nav ul li:hover > ul {
 
 main {
 
-  padding-top: 120px;
-  padding-bottom: 200px;
+  padding-top: 65px;
+  padding-bottom: 170px;
 }
 
 section {
-  margin: auto;
+  margin: 0 0 0 0;
   padding: 5px;
   padding-bottom: 5px;
+}
+
+section.playerselect {
+  margin: 0 0 0 0;
 }
 
 article {
@@ -167,7 +188,7 @@ section form select {
 
 section form input[type="submit"]{
   display: block;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 label {
@@ -177,6 +198,67 @@ label {
     padding-right: 1em;
     padding-bottom: .5em;
 }
+
+
+
+button.acceptChallengeBtn {
+    background: #b7d770;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cae285', endColorstr='#9fcb57'); /*  IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#cae285), to(#9fcb57)); /*  WebKit */
+    background: -moz-linear-gradient(top,  #cae285, #9fcb57);
+    border-color: #adc671 #98b65b #87aa4a;
+    border-radius: 5px;
+    color: #5d7731;
+    text-shadow: 0 1px 0 #cfe5a4;
+    -webkit-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;
+    -moz-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;
+    box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;  
+
+}
+
+button.acceptChallengeBtn:hover{
+    background: #b9d972;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8d872', endColorstr='#b9d972'); /*  IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#b8d872), to(#b9d972)); /*  WebKit */
+    background: -moz-linear-gradient(top,  #b8d872, #b9d972);
+    border-color: #8bb14d #83a648 #7d9e45;
+    text-shadow: 0 1px 0 #d5e8aa;
+    -webkit-box-shadow: 0 1px 1px #d5d5d5, inset 0 1px 0 #cae295;
+    -moz-box-shadow: 0 1px 1px #d5d5d5, inset 0 1px 0 #cae295;
+    box-shadow: 0 1px 1px #d5d5d5, inset 0 1px 0 #cae295;    
+}
+
+button.changeChallengeBtn {
+background-color: yellow;
+
+}
+
+button.changeChallengeBtn{
+    background: #fecc5f;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#feda71', endColorstr='#febb4a'); /*  IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#feda71), to(#febb4a)); /*  WebKit */
+    background: -moz-linear-gradient(top,  #feda71, #febb4a);
+    border-color: #f5b74e #e5a73e #d6982f;
+    border-radius: 5px;
+    color: #996633;
+    text-shadow: 0 1px 0 #fedd9b;
+    -webkit-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
+    -moz-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
+    box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;   
+    margin-left: 6px; 
+}
+button.changeChallengeBtn:hover{
+    background: #fecb5e;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#fec354', endColorstr='#fecd61'); /*  IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#fec354), to(#fecd61)); /*  WebKit */
+    background: -moz-linear-gradient(top,  #fec354, #fecd61);
+    border-color: #d29a3a #cc9436 #c89133;
+    text-shadow: 0 1px 0 #fee1a0;
+    -webkit-box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
+    -moz-box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
+    box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;    
+}
+
 
 /*#buttons input {
     float: left;

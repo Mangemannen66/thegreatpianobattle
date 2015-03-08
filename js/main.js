@@ -59,19 +59,46 @@ $(function() {
 	}
 
 	function getChallengeData(battleData) {
-		$(".playerSelect").html('');
+		$(".playerSelect").remove();
 		$(".battleInfo").html('');
 		$(".battleChoise").html('');
 		$(".battleInfo").append("<h3>Info regarding you and your competitors!</h3>");
-		$(".battleInfo").append("<p>Your name: &nbsp;&nbsp;" + battleData["playerName"] + "&nbsp;&nbsp;Pianoplayer type: &nbsp;&nbsp;" + battleData["playerClass"] + "&nbsp;&nbsp;Succes points: &nbsp;&nbsp;" + battleData["playerSuccess"] + "</p>");
-		$(".battleInfo").append("<p>Virtualplayer 1: &nbsp;&nbsp;" + battleData["virtualPlayer1Name"] + "&nbsp;&nbsp;Pianoplayer type: &nbsp;&nbsp;" + battleData["virtualPlayer1Class"] + "&nbsp;&nbsp;Succes points: &nbsp;&nbsp;" + battleData["virtualPlayer1Success"] + "</p>");
-		$(".battleInfo").append("<p>Virtualplayer 2: &nbsp;&nbsp;" + battleData["virtualPlayer2Name"] + "&nbsp;&nbsp;Pianoplayer type: &nbsp;&nbsp;" + battleData["virtualPlayer2Class"] + "&nbsp;&nbsp;Succes points: &nbsp;&nbsp;" + battleData["virtualPlayer2Success"] + "</p><br>");
+		$(".battleInfo").append("<p><span class='normal'>Your name: &nbsp;&nbsp;&nbsp;&nbsp;</span>" 
+		  + battleData["playerName"] + "<span class='normal'><br>Pianoplayer type: &nbsp;&nbsp;</span>"
+		  + battleData["playerClass"] + "<span class='normal'>&nbsp;&nbsp;Succes points: &nbsp;&nbsp;</span>" 
+		  + battleData["playerSuccess"] + "</p>");
+		$(".battleInfo").append("<p><span class='normal'>Virtualplayer 1: &nbsp;&nbsp;</span>" 
+			+ battleData["virtualPlayer1Name"] + "<span class='normal'><br>Pianoplayer type: &nbsp;&nbsp;</span>" 
+			+ battleData["virtualPlayer1Class"] + "<span class='normal'>&nbsp;&nbsp;Succes points: &nbsp;&nbsp;</span>" 
+			+ battleData["virtualPlayer1Success"] + "</p>");
+		$(".battleInfo").append("<p><span class='normal'>Virtualplayer 2: &nbsp;&nbsp;</span>" 
+			+ battleData["virtualPlayer2Name"] + "<span class='normal'><br>Pianoplayer type: &nbsp;&nbsp;</span>" 
+			+ battleData["virtualPlayer2Class"] + "<span class='normal'>&nbsp;&nbsp;Succes points: &nbsp;&nbsp;</span>" 
+			+ battleData["virtualPlayer2Success"] + "</p><br>");
 	
 		$(".battleInfo").append("<h2>This battlechallenge!</h2>");
-		$(".battleInfo").append("<h3>" + battleData["challenge"]["title"] + "</h3>");
+		$(".battleInfo").append("<h3> Battlesong: " + battleData["challenge"]["title"] + "</h3>");
 		$(".battleInfo").append("<p class='challenge'>"+battleData["challenge"]["description"] +"</p>");
+		$(".battleInfo").append("<p><span class='normal'>Skills to have: &nbsp;</span><span class='normal'>Harmony: </span>" 
+			+ battleData["challenge"]["skills"]["harmony"] + "<span class='normal'>&nbsp;Scale: </span>" 
+			+ battleData["challenge"]["skills"]["scale"] + "<span class='normal'>&nbsp;Rhythm: </span>" 
+			+ battleData["challenge"]["skills"]["rhythm"] + "<span class='normal'>&nbsp;Feeling: </span>" 
+			+ battleData["challenge"]["skills"]["feeling"] + "</p>");
+		$(".battleChoise").append("<h3>Go ahead with this Pianobattlechallenge?</h3>");
+		$(".battleChoise").append('<button class="acceptChallengeBtn">Accept challenge!</button>');
+		$(".battleChoise").append('<button class="changeChallengeBtn">Change challenge!</button>');
 
-
+		$(".acceptChallengeBtn").click(function() {
+			doChallenge();
+			
+			return false;
+		});
+		
+		$(".changeChallengeBtn").click(function() {
+			battleGo(true);
+		
+			return false;
+		});
 	}
 
 

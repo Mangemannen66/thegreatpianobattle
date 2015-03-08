@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Raleway:400,700|Dancing+Script' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Anton|Inconsolata:400,700|Dancing+Script|Architects+Daughter' rel='stylesheet' type='text/css'>
+     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300|Raleway:400,700|Dancing+Script' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/meyer-reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
@@ -24,41 +23,29 @@
         </nav>  -->
     </header>
     <main>
-      <article>
-        <h2>Welcome to the battle!</h2>
-        
         <section class="playerSelect">
    
+            <form class="playerSelect">              
+                  <label for="player_name">Your playername:</label>
+                  <input type="text" id="playerName" name="playerName" placeholder="Type your name: "><br>
 
-        <form class="playerSelect">
-
+                  <label>Choose the type of player:</label><br>
             
-                <label for="player_name">Your playername:</label>
-                <input type="text" id="playerName" name="playerName" placeholder="Type your name: "><br>
-
-                <label>Choose the type of player:</label><br>
-          
-                  <input type="radio" id="RockPianoPlayerClass" name="playerClass" value="RockPianoPlayer">
-                  <label for="RockPianoPlayer" >RockPianoPlayer</label><br>
-                  <input type="radio" id="JazzPianoPlayerClass" name="playerClass" value="JazzPianoPlayer">
-                  <label for="JazzPianoPlayer">JazzPianoPlayer</label><br>
-                  <input type="radio" id="PopPianoPlayerClass" name="playerClass" value="PopPianoPlayer">
-                  <label for="PopPianoPlayer">PopPianoPlayer</label><br>
-            
-                <label>&nbsp;</label>
-                <button class="startGame" type="submit">Start the game</button><br>
-        </form>
+                    <input type="radio" id="RockPianoPlayerClass" name="playerClass" value="RockPianoPlayer">
+                    <label for="RockPianoPlayer" >RockPianoPlayer</label><br>
+                    <input type="radio" id="JazzPianoPlayerClass" name="playerClass" value="JazzPianoPlayer">
+                    <label for="JazzPianoPlayer">JazzPianoPlayer</label><br>
+                    <input type="radio" id="PopPianoPlayerClass" name="playerClass" value="PopPianoPlayer">
+                    <label for="PopPianoPlayer">PopPianoPlayer</label><br>           
+                  <label>&nbsp;</label>
+                  <button class="startGame" type="submit">Start the game</button><br>
+            </form>
         </section>
-      </article>  
-      <article>
-        <section class="battleInfo"></section>
-        <section class="battleChoise"></section>
-      </article>
-    </main>
-    <footer>
-      <address> 
-        <p></p>
-      </address>
-    </footer>
+        <article>
+          <section class="battleInfo"></section>
+          <section class="battleChoise"></section>
+        </article>
+  </main>
+
   </body>
 </html>
