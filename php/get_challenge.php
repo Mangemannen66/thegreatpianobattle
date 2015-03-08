@@ -19,11 +19,11 @@ $player_name = $player->name;
 $player_class = $player->battleZone;
 
 //Virtuella spelare
-$virtualPlayer = &$ds->virtualPlayer;
-$virtualPlayer1_name = $virtualPlayer[0]->name;
-$virtualPlayer1_battleZone = $virtualPlayer[0]->battleZone;
-$virtualPlayer2_name = $virtualPlayer[1]->name;
-$virtualPlayer2_battleZone = $virtualPlayer[1]->battleZone;
+$virtualPlayers = &$ds->virtualPlayers;
+$virtualPlayer1_name = $virtualPlayers[0]->name;
+$virtualPlayer1_battleZone = $virtualPlayers[0]->battleZone;
+$virtualPlayer2_name = $virtualPlayers[1]->name;
+$virtualPlayer2_battleZone = $virtualPlayers[1]->battleZone;
 
 
 
@@ -36,19 +36,12 @@ $challenge_data = file_get_contents($challenge_json_path);
 
 // Om vi inte hitter challenge filen, stoppa scriptet
 if (!$challenge_data) {
-  echo("Challenge json not found! ".$game_data_path);
+  echo("NO challenge found here! ".$game_data_path);
   exit();
 }
 
 // Gör json till en associative arrays
 $challenge = json_decode($challenge_data, true);
-
-if(!$challenge) {
-	echo("json_decode failed");
-	exit();
-}
-
-unset($ds->challenge);
 
 $current_challenge = &$ds->challenge;
 
@@ -57,8 +50,8 @@ $new_challenge = new Challenge($challenge);
 $current_challenge[] = $new_challenge;
 
 $player_success = $player->success;
-$virtualPlayer1_success = $virtualPlayer[0]->success;
-$virtualPlayer2_success = $virtualPlayer[1]->success;
+$virtualPlayer1_success = $virtualPlayers[0]->success;
+$virtualPlayer2_success = $virtualPlayers[1]->success;
 
 $game_data = array(
   "playerName" => &$player_name,

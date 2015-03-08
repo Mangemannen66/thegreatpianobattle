@@ -31,12 +31,11 @@ $ds = new DBObjectSaver(array(
 unset($ds->player);
 unset($ds->virtualPlayer);
 unset($ds->tools);
+unset($ds->challenge);
 //Lite ALIAS!
 $player = &$ds->player;
-$virtualPlayer = &$ds->virtualPlayer;
+$virtualPlayers = &$ds->virtualPlayers;
 $tools = &$ds->tools;
-
-
 
 
 $tools[] = new Tool("A HarmonyBook",
@@ -118,8 +117,8 @@ $classes = array("RockPianoPlayer" , "PopPianoPlayer" , "JazzPianoPlayer");
 $busy_class = array_search($player_class, $classes);
 array_splice($classes, $busy_class, 1);
 //Skapa 2 Virtuella spelare
-$virtualPlayer[] = new $classes[0]("Herbie Hancock", $classes[0]);
-$virtualPlayer[] = new $classes[1]("Chick Corea", $classes[1]);
+$virtualPlayers[] = new $classes[0]("Herbie Hancock", $classes[0]);
+$virtualPlayers[] = new $classes[1]("Chick Corea", $classes[1]);
 
 
 echo(json_encode(true));

@@ -13,9 +13,11 @@ $ds = new DBObjectSaver(array(
   "password" => "mysql",
   "prefix" => "piano_battle",
 ));
+//if (isset($_REQUEST["startOver"])) {
+  unset($ds->player);
+  unset($ds->virtualPlayer);
+  unset($ds->tools);
+  unset($ds->challenge);
+//}
 
-
-$player = &$ds->player[0];
-$virtualPlayers = &$ds->virtualPlayers;
-$challenge = &$ds->challenge[0];
-
+echo(json_encode(true));
