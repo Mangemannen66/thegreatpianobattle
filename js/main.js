@@ -95,8 +95,69 @@ $(function() {
 		});
 		
 		$(".changeChallengeBtn").click(function() {
-			battleGo(true);
+			changeChallenge(true);
 		
+			return false;
+		});
+	}
+
+		function changeChallenge(challengeChoise) {
+		$.ajax({
+			url: "php/get_challenge.php",
+			dataType: "json",
+			data: {
+				challengeChoise : challengeChoise
+			},
+			success: function(data) {
+				//var successPoints = data["playerSuccess"];
+	
+					getChallengeData(data);
+					console.log("change challange and get challenge Success: ", data);
+				
+			},
+			error: function(data) {
+				console.log("Error: ", data);
+			}
+		});
+	}
+
+
+
+	function doChallenge() {
+		$.ajax({
+			url: "php/do_challenge.php",
+			dataType: "json",
+			success: function(data) {
+				challengeAccepted(data);
+				console.log("doChallenge Success: ", data);
+			},
+			error: function(data) {
+				console.log("Error: ", data);
+			}
+		});
+	}
+
+	function challengeAccepted(battleData) {
+		$(".battleInfo").html('');
+		$(".battleChoise").html('');
+		$(".battleInfo").append("<h3>" + battleData["acceptedString"] + "</h3>");
+		$(".battleInfo").append("<p>You can do the challenge together with a virtual player but it will cost you 5 success points.<br> If you win as a team, you will get 9 success points each.</p>");
+		$(".battleInfo").append("<p>If you win a challenge alone, you will get 15 success points.<br>If you lose the challenge it will cost you 5 success points and if you come in second or third you lose a tool!</p>");
+
+		$(".battleChoise").append('<button class="doChallengeBtn">Carry out challenge!</button>');
+		if (battleData["virtualPlayer2Name"] !== null) {
+			$(".battleChoise").append('<button class="companionChallengeBtn">Carry out challenge with contestant!</button>');
+		}
+
+		$(".doChallengeBtn").click(function() {
+			playChallenge(false);
+
+			return false;
+		});
+
+		$(".companionChallengeBtn").click(function() {
+			playChallenge(true);
+
 			return false;
 		});
 	}

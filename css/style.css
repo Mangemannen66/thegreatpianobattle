@@ -100,43 +100,6 @@ header {
   color: #990000;
 }
 
-
-/*give header nav a bit of space*/
-header nav {
-  margin: 20px 0 0;
-}
-
-/*all nav ul li should have a 5px padding*/
-header nav ul li {
-  padding: 5px;
-  /*and a cursor pointer*/
-  cursor: pointer;
-}
-
-/*only make first level li tags inline block */
-header nav > ul > li {
-  display: inline-block;
-  /*vertical aling ensures inline elements stay at top when they expand (submenus!)*/
-  vertical-align: top;
-}
-
-
-header nav ul ul {
-  display: none;
-
-  background-color: #fff;
-}
-
-header nav ul li:hover {
-  background-color: #eee;
- 
-  border-radius: 5px;
-}
-
-header nav ul li:hover > ul {
-  display: block;
-}
-
 main {
 
   padding-top: 65px;
@@ -228,10 +191,7 @@ button.acceptChallengeBtn:hover{
     box-shadow: 0 1px 1px #d5d5d5, inset 0 1px 0 #cae295;    
 }
 
-button.changeChallengeBtn {
-background-color: yellow;
 
-}
 
 button.changeChallengeBtn{
     background: #fecc5f;
@@ -257,6 +217,36 @@ button.changeChallengeBtn:hover{
     -webkit-box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
     -moz-box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
     box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;    
+}
+
+button.doChallengeBtn {
+    background: #b7d770;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cae285', endColorstr='#9fcb57'); /*  IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#cae285), to(#9fcb57)); /*  WebKit */
+    background: -moz-linear-gradient(top,  #cae285, #9fcb57);
+    border-color: #adc671 #98b65b #87aa4a;
+    border-radius: 5px;
+    color: #5d7731;
+    text-shadow: 0 1px 0 #cfe5a4;
+    -webkit-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;
+    -moz-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;
+    box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;  
+
+}
+
+button.companionChallengeBtn {
+    background: #b7d770;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cae285', endColorstr='#9fcb57'); /*  IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#cae285), to(#9fcb57)); /*  WebKit */
+    background: -moz-linear-gradient(top,  #cae285, #9fcb57);
+    border-color: #adc671 #98b65b #87aa4a;
+    border-radius: 5px;
+    color: #5d7731;
+    text-shadow: 0 1px 0 #cfe5a4;
+    -webkit-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;
+    -moz-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;
+    box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #d7e9a4;  
+    margin-left: 6px; 
 }
 
 

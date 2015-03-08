@@ -29,7 +29,7 @@ $ds = new DBObjectSaver(array(
 
 //destroy old game data
 unset($ds->player);
-unset($ds->virtualPlayer);
+unset($ds->virtualPlayers);
 unset($ds->tools);
 unset($ds->challenge);
 //Lite ALIAS!
